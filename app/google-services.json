@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "585730471079",
+    "firebase_url": "https://lapitchat-6c75a.firebaseio.com",
+    "project_id": "lapitchat-6c75a",
+    "storage_bucket": "lapitchat-6c75a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585730471079:android:207e6cd39e1d3e34",
+        "android_client_info": {
+          "package_name": "com.vega.lapitchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585730471079-b1fc0u262hul5d5j4h5ep673in5g6j1n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vega.lapitchat",
+            "certificate_hash": "7a4db50dea30ebe99b8601a00b062e6a365fdc00"
+          }
+        },
+        {
+          "client_id": "585730471079-0tr3fkdihdi74p2rfi05d7lbjber6mip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZxxNuY39479IXAYdl_2sNODXkXRSHJsw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585730471079-0tr3fkdihdi74p2rfi05d7lbjber6mip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
