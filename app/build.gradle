@@ -29,7 +29,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.google.firebase:firebase-auth:10.2.4'
+    implementation 'com.android.support:support-v4:25.4.0'
 }
+
+
+
+
 
 
 
