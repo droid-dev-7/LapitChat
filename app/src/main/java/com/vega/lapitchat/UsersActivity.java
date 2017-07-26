@@ -1,6 +1,7 @@
 package com.vega.lapitchat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,12 +64,24 @@ public class UsersActivity extends AppCompatActivity {
 
         ) {
             @Override
-            protected void populateViewHolder(UsersViewHolder usersViewHolder, Users users, int i) {
+            protected void populateViewHolder(UsersViewHolder usersViewHolder, Users users, int position) {
 
                 usersViewHolder.setName(users.getName());
                 usersViewHolder.setStatus(users.getStatus());
-                usersViewHolder.setImage(users.getImage(), getApplicationContext());
+                usersViewHolder.setImage(users.getThumb_image(), getApplicationContext());
 
+                final String user_id = getRef(position).getKey();
+
+                usersViewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent profileIntent = new Intent(UsersActivity.this, ProfileActivity.class);
+                        profileIntent.putExtra("user_id", user_id);
+                        startActivity(profileIntent);
+
+                    }
+                });
             }
         };
 
@@ -96,10 +109,10 @@ public class UsersActivity extends AppCompatActivity {
             TextView userStatusView = (TextView) mView.findViewById(R.id.user_single_status);
             userStatusView.setText(status);
         }
-        public void setImage(String image, Context context) {
+        public void setImage(String thumb_image, Context context) {
 
             CircleImageView userImageView = (CircleImageView) mView.findViewById(R.id.user_single_image);
-            Picasso.with(context).load(image).placeholder(R.drawable.default_avatar).into(userImageView);
+            Picasso.with(context).load(thumb_image).placeholder(R.drawable.default_avatar).into(userImageView);
         }
     }
 }
