@@ -52,7 +52,12 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        final String user_id = getIntent().getStringExtra("user_id");
+        Bundle b = getIntent().getExtras();
+        String user_id_provisional = b.getString("from_user_id");
+        if(user_id_provisional == null){
+            user_id_provisional = b.getString("user_id");
+        }
+        final String user_id = user_id_provisional;
 
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         mFriendReqDatabase = FirebaseDatabase.getInstance().getReference().child("Friend_req");
