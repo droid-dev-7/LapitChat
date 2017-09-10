@@ -134,22 +134,23 @@ public class ProfileActivity extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                        if(dataSnapshot.hasChild(user_id)){
+                                        if(dataSnapshot.hasChild(user_id)) {
 
                                             mCurrent_state = "friends";
                                             mProfileSendReqBtn.setText("Unfriend this Person");
 
                                             mDeclineBtn.setVisibility(View.INVISIBLE);
                                             mDeclineBtn.setEnabled(false);
-                                        }else{
-                                            mDeclineBtn.setVisibility(View.INVISIBLE);
-                                            mDeclineBtn.setEnabled(false);
                                         }
+
+                                        mProgressDialog.dismiss();
 
                                     }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
+
+                                        mProgressDialog.dismiss();
 
                                     }
                                 });
