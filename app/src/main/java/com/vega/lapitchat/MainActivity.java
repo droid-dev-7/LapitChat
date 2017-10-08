@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Lapit Chat");
 
-        mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+        if (mAuth.getCurrentUser() != null) {
+            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+        }
 
         //Tabs
         mViewPager = (ViewPager) findViewById(R.id.main_tabPager);
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else{
 
-            mUserRef.child("online").setValue(true);
+            mUserRef.child("online").setValue("true");
 
         }
     }
@@ -71,7 +74,13 @@ public class MainActivity extends AppCompatActivity {
     public void onStop(){
         super.onStop();
 
-        mUserRef.child("online").setValue(false);
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser!=null){
+
+            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
+
+        }
 
     }
 
